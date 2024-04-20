@@ -2,6 +2,7 @@
 </br>
 Database project implemented in Flask
 </br>
-Static/Css -> file includes styles
+static/css -> directory includes styles
+templates -> directory includes .html files
 
 
