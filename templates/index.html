@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Shop Management System</h1>
+    </header>
+    
+    <main>
+        <p><h3>Select an option:</h3></p>
+        <a href="customer">Customer Table</a>
+        <a href="order">Order Table</a>
+        <a href="/join?join_type=inner">INNER JOIN</a>
+        <a href="/join?join_type=left1">LEFT JOIN1</a>
+        <a href="/join?join_type=left2">LEFT JOIN2</a>
+
+    </main>
+</body>
+</html>

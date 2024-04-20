@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Orders</title>
+</head>
+<body>
+    <div class="Orders" align="center">
+        <table>
+            <tr>
+                <th>order_id</th>
+                <th>customer_id</th>
+                <th>product</th>
+                <th>quantity</th>
+                <th>order_date</th>
+                <th>Actions</th>
+            </tr>
+
+            {% if sample_data %}
+                <tr>
+                    <td>{{ sample_data.order_id }}</td>
+                    <td>{{ sample_data.customer_id }}</td>
+                    <td>{{ sample_data.product }}</td>
+                    <td>{{ sample_data.quantity }}</td>
+                    <td>{{ sample_data.order_date }}</td>
+                    <td>
+                        <a href="order/delete/{{ sample_data.order_id }}">Delete<br></a>
+                        <a href="order/update/{{ sample_data.order_id }}">Update<br></a>
+                    </td>
+                </tr>
+            {% endif %}
+
+            {% for order in orders_data %}
+                <tr>
+                    <td>{{ order.order_id }}</td>
+                    <td>{{ order.customer_id }}</td>
+                    <td>{{ order.product }}</td>
+                    <td>{{ order.quantity }}</td>
+                    <td>{{ order.order_date }}</td>
+                    <td>
+                        <a href="order/delete/{{ order.order_id }}">Delete<br></a>
+                        <a href="order/update/{{ order.order_id }}">Update<br></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <form action="/order" method="POST">
+            <label for="customer_id">Customer ID:</label>
+            <input type="text" name="customer_id" id="customer_id">
+            
+            <label for="product">Product:</label>
+            <input type="text" name="product" id="product">
+            
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" id="quantity">
+            
+            <input type="submit" name="add_order" value="Add Order">
+        </form>
+
+        <form action="/order" method="POST">
+            <input type="submit" name="fill_table" value="Fill Table">
+        </form>
+    </div>
+</body>
+</html>

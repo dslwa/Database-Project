@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Customers</title>
+</head>
+<body>
+    <div class="Customers" align="center">
+        <table>
+            <tr>
+                <th>customer_id</th>
+                <th>name</th>
+                <th>email</th>
+                <th>phone</th>
+                <th>Actions</th>
+            </tr>
+
+            {% if sample_data %}
+                <tr>
+                    <td>{{ sample_data.customer_id }}</td>
+                    <td>{{ sample_data.name }}</td>
+                    <td>{{ sample_data.email }}</td>
+                    <td>{{ sample_data.phone }}</td>
+                    <td>
+                        <a href="customer/delete/{{ sample_data.customer_id }}">Delete<br></a>
+                        <a href="customer/update/{{ sample_data.customer_id }}">Update<br></a>
+                    </td>
+                </tr>
+            {% endif %}
+
+            {% for customer in customers_data %}
+                <tr>
+                    <td>{{ customer.customer_id }}</td>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>
+                        <a href="customer/delete/{{ customer.customer_id }}">Delete<br></a>
+                        <a href="customer/update/{{ customer.customer_id }}">Update<br></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <form action="/customer" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+    
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email">
+
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" id="phone">
+    
+    <input type="submit" name="add_customer" value="Add Customer">
+</form>
+
+        <form action="/customer" method="POST">
+            <input type="submit" name="fill_table" value="Fill Table">
+        </form>
+    </div>
+</body>
+</html>

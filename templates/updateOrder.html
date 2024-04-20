@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Update Order</title>
+</head>
+<body>
+    <div align="center">
+        <form action="{{ url_for('update', order_id=order_id) }}" method="POST">
+            <label for="customer_id">Customer ID:</label>
+            <input type="text" name="customer_id" id="customer_id" value="{{ order.customer_id }}">
+            
+            <label for="product">Product:</label>
+            <input type="text" name="product" id="product" value="{{ order.product }}">
+            
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" id="quantity" value="{{ order.quantity }}">
+            
+            <input type="submit" name="update_order" value="Update Order">
+        </form>
+    </div>
+</body>
+</html>

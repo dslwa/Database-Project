@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Update Customer</title>
+</head>
+<body>
+    <div align="center">
+        <form action="{{ url_for('update_customer', customer_id=customer_id) }}" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" value="{{ customer.name }}">
+            
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" value="{{ customer.email }}">
+            
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" id="phone" value="{{ customer.phone }}">
+            
+            <input type="submit" name="update_customer" value="Update Customer">
+        </form>
+    </div>
+</body>
+</html>

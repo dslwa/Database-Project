@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>{{ join_type|capitalize }} Join Result</title>
+</head>
+<body>
+    <div class="JoinResult" align="center">
+        <header><h2>{{ join_type|capitalize }} Join Result</h2></header>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Customer_ID</th>
+                <th>Order_ID</th>
+            </tr>
+
+            {% for customer, order in joined_data %}
+                <tr>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>{{ customer.customer_id }}</td>
+                    <td>{{ order.order_id }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
