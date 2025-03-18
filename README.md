@@ -1,8 +1,5 @@
-# Database_Project
-</br>
-Database project implemented in Flask
-</br>
-static/css -> directory includes styles
-templates -> directory includes .html files
+## Project: Shop Management System
 
+This is a web application for managing customer and order data in a shop, created using Flask, SQLAlchemy, and an SQLite database. The project allows users to add, delete, and update customers and orders. The user can manage customer and order tables, view data, and perform CRUD (Create, Read, Update, Delete) operations. The application supports various SQL query types, including INNER JOIN and LEFT JOIN, enabling the merging of data from the customer and order tables. The frontend is built using HTML and simple CSS, providing an aesthetically pleasing user interface. Using Flask, the application is dynamic, with data displayed in tables for easy management.
 
+The project includes forms for adding data (customers and orders) and the option to populate tables with sample data. The application utilizes Flask routing to manage different pages and features, such as updating and deleting data. Additionally, users can execute JOIN queries to display results combining customer and order data. The application is ready for further development with additional features like user authentication, registration, or reporting. The project is fully functional and offers basic data operations for a shop.
